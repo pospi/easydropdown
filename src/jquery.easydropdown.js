@@ -203,8 +203,8 @@
 			if(typeof self.onChange === 'function'){
 				if (!self.multiple) {
 					self.onChange.call(self.$select[0],{
-						title: title,
-						value: value
+						title: $selected.text(),
+						value: $selected.val()
 					});
 				} else {
 					self.onChange.call(self.$select[0], $selected.map(function(i, el) {
