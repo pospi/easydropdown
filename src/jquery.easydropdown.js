@@ -405,7 +405,7 @@
 			var self = this;
 			
 			if(typeof index === 'string'){
-				index = self.$select.find('option[value='+index+']').index() - 1;
+				index = self.$select.find('option[value='+index+']').index();
 			};
 
 			// if no state is specified directly, default behaviour is selection on single inputs and toggling on multiple ones.
@@ -417,7 +417,7 @@
 				selectIndex = self.hasLabel ? index + 1 : index,
 				allOptions = self.$select.find('option'),
 				selectionData = {
-					index: selectIndex,
+					index: index,
 					title: option.title
 				}, i, alreadyOn;
 
