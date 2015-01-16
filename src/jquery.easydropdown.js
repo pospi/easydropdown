@@ -66,7 +66,8 @@
 							domNode: $option[0],
 							title: $option.text(),
 							value: $option.val(),
-							selected: $option.is(':selected')
+							selected: $option.is(':selected'),
+							className: $option[0].className
 						});
 					};
 				});
@@ -99,9 +100,13 @@
 			self.$dropDown = self.$scrollWrapper.find('ul');
 			self.$form = self.$container.closest('form');
 			$.each(self.options, function(){
-				var	option = this,
-					active = option.selected ? ' class="active"':'';
-				self.$dropDown.append('<li'+active+'>'+option.title+'</li>');
+				var option = this,
+					className = option.className || '';
+
+				if (option.selected) {
+					className += " active";
+				}
+				self.$dropDown.append('<li' + (className ? " class=\"" + className + "\"" : '') + '>' + option.title + '</li>');
 			});
 			self.$items = self.$dropDown.find('li');
 
